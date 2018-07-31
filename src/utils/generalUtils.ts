@@ -46,3 +46,23 @@ export const parseMultiPartRequest = async (request: Request): Promise<void> => 
     });
   });
 };
+
+export const parseDatabaseArguments = (args: any) => {
+  let databaseArguments = {
+    db: {
+      username: '',
+      password: '',
+      db: '',
+      host: 'localhost',
+      port: '' || 3306,
+      dialect: ''
+    }
+  };
+  args.filter(element => element.substring(0, 2) === "db")
+    .forEach(dbparam => {
+      let [key, value] = dbparam.split("=");
+      databaseArguments.db[key.slice(2)] = value;
+    });
+
+  return databaseArguments;
+};
