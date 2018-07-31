@@ -1,3 +1,8 @@
+# Setup
+
+Initial start up : Heroku
+Local database configuration by arguments.
+
 # tsoa api
 * This project is a seed for building a **node.js** api. It includes the following features:
 * *  [tsoa](https://www.npmjs.com/package/tsoa) `typescript`
