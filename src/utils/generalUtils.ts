@@ -58,9 +58,9 @@ export const parseDatabaseArguments = (args: any) => {
       dialect: ''
     }
   };
-  args.filter(element => element.substring(0, 2) === "db")
+  args.filter(element => element.substring(0, 2) === 'db')
     .forEach(dbparam => {
-      let [key, value] = dbparam.split("=");
+      let [key, value] = dbparam.split('=');
       databaseArguments.db[key.slice(2)] = value;
     });
 
