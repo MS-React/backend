@@ -12,12 +12,12 @@ Also, you can use [nvm node version management tool](https://github.com/creation
 install yarn
   * `curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -`
   * `echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list`
-  * sudo apt-get update && sudo apt-get install yarn
+  * `sudo apt-get update && sudo apt-get install yarn`
 
 ## Start applicationn
 
  * start with dev database `yarn start:dev`
- * start with local database `yarn start:local dbname={dbname}
+ * start with local database `yarn start:local dbname={dbname} dbusername={dbusername} dbpassword={dbpassword}`
 
 You can check this documentation to install [mysql and mariadb with ubuntu 16.04](https://www.linuxbabe.com/linux-server/install-apache-mariadb-and-php7-lamp-stack-on-ubuntu-16-04-lts) to **run with local database**
 
