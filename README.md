@@ -3,9 +3,9 @@ The ms-react backend is an API rest service from [react base](https://github.com
 
 ## Prerequisites
 install npm
-  * sudo apt-get update
-  * sudo apt-get install nodejs
-  * sudo apt-get install npm
+  * `sudo apt-get update`
+  * `sudo apt-get install nodejs`
+  * `sudo apt-get install npm`
 
 Also, you can use [nvm node version management tool](https://github.com/creationix/nvm)
 
