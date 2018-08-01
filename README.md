@@ -1,8 +1,3 @@
-# Setup
-
-Initial start up : Heroku
-Local database configuration by arguments.
-
 # tsoa api
 * This project is a seed for building a **node.js** api. It includes the following features:
 * *  [tsoa](https://www.npmjs.com/package/tsoa) `typescript`
@@ -21,6 +16,14 @@ Local database configuration by arguments.
 * **test:** `yarn test` *unit and integration tests*
 * **build:** `yarn build` *production build*
 * **prod:** `yarn start:prod` *starts the server on production mode*
+* **local:** `yarn start:local` *lets the user sets the database arguments*
+   * **required arguments:**
+      * **dbname=LOCAL_DBNAME**
+      * **dbusername=LOCAL_USERNAME**
+      * **dbpassword=LOCAL_PASSWORD**
+      * **dbhost=LOCAL_HOST**
+      * **dbport=LOCAL_PORT**
+      * **dbdialect=LOCAL_DIALECT**
 
 ## Scaffolding
 * config `express server, DB connection, Logger, etc`
