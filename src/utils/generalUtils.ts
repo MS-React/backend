@@ -2,6 +2,17 @@ import { Request } from 'express';
 import * as multer from 'multer';
 import constants from '../config/constants';
 
+const parseDatabaseArguments = (args: Array<string>): typeof constants['SQL'] => {
+  const localDbConfig = constants.SQL;
+  args.filter(element => element.substring(0, 2) === 'db')
+    .forEach(dbparam => {
+      let [key, value] = dbparam.split('=');
+      localDbConfig[key.slice(2)] = value;
+    });
+
+  return localDbConfig;
+};
+
 export const safeParse = (str: string, fallback: any = undefined) => {
   try {
     return JSON.parse(str);
@@ -56,15 +67,4 @@ export const getDatabaseConfig = (): typeof constants['SQL'] => {
   }
 
   return config;
-}
-
-const parseDatabaseArguments = (args: Array<string>): typeof constants['SQL'] => {
-  const localDbConfig = constants['SQL']
-  args.filter(element => element.substring(0, 2) === 'db')
-    .forEach(dbparam => {
-      let [key, value] = dbparam.split('=');
-      localDbConfig[key.slice(2)] = value;
-    });
-
-  return localDbConfig;
 };
