@@ -1,5 +1,5 @@
 # Description
-MS-React backend, is an API rest service from [react base](https://github.com/MS-React/react-base) to make additions, deletions, and modifications from users.
+The ms-react backend is an API rest service from [react base](https://github.com/MS-React/react-base) to make additions, deletions, and modifications from users.
 
 ## Prerequisites
 install npm
@@ -14,12 +14,12 @@ install yarn
   * `echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list`
   * `sudo apt-get update && sudo apt-get install yarn`
 
-## Start applicationn
+## Start application
 
  * start with dev database `yarn start:dev`
  * start with local database `yarn start:local dbname={dbname} dbusername={dbusername} dbpassword={dbpassword}`
 
-You can check this documentation to install [mysql and mariadb with ubuntu 16.04](https://www.linuxbabe.com/linux-server/install-apache-mariadb-and-php7-lamp-stack-on-ubuntu-16-04-lts) to **run with local database**
+You can check this documentation to install [mysql and MariaDB with ubuntu 16.04](https://www.linuxbabe.com/linux-server/install-apache-mariadb-and-php7-lamp-stack-on-ubuntu-16-04-lts) to **run with local database**
 
 
 # tsoa api
