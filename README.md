@@ -16,14 +16,15 @@
 * **test:** `yarn test` *unit and integration tests*
 * **build:** `yarn build` *production build*
 * **prod:** `yarn start:prod` *starts the server on production mode*
-* **local:** `yarn start:local` *lets the user sets the database arguments*
+* **local:** `yarn start:local` *lets the user sets the database via arguments*
    * **required arguments:**
       * **dbname=LOCAL_DBNAME**
       * **dbusername=LOCAL_USERNAME**
       * **dbpassword=LOCAL_PASSWORD**
-      * **dbhost=LOCAL_HOST**
-      * **dbport=LOCAL_PORT**
-      * **dbdialect=LOCAL_DIALECT**
+  * **default arguments (can be overriden):**
+      * **dbhost=localhost**
+      * **dbport=3306**
+      * **dbdialect=mysql**
 
 ## Scaffolding
 * config `express server, DB connection, Logger, etc`

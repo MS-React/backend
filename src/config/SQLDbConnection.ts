@@ -11,7 +11,7 @@ export class SQLDbConnection {
 
   constructor() {
     Logger.log(`connecting to ${constants.environment} SQL`);
-    let config = getDatabaseConfig();
+    const config = getDatabaseConfig();
 
     this.db = new Sequelize(config.name, config.username, config.password, {
       port: config.port,
