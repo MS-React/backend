@@ -1,3 +1,27 @@
+# Description
+MS-React backend, is an API rest service from [react base](https://github.com/MS-React/react-base) to make additions, deletions, and modifications from users.
+
+## Prerequisites
+install npm
+  * sudo apt-get update
+  * sudo apt-get install nodejs
+  * sudo apt-get install npm
+
+Also, you can use [nvm node version management tool](https://github.com/creationix/nvm)
+
+install yarn
+  * `curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -`
+  * `echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list`
+  * sudo apt-get update && sudo apt-get install yarn
+
+## Start applicationn
+
+ * start with dev database `yarn start:dev`
+ * start with local database `yarn start:local dbname={dbname}
+
+You can check this documentation to install [mysql and mariadb with ubuntu 16.04](https://www.linuxbabe.com/linux-server/install-apache-mariadb-and-php7-lamp-stack-on-ubuntu-16-04-lts) to **run with local database**
+
+
 # tsoa api
 * This project is a seed for building a **node.js** api. It includes the following features:
 * *  [tsoa](https://www.npmjs.com/package/tsoa) `typescript`
@@ -7,8 +31,10 @@
 * * [sequelize](https://www.npmjs.com/package/sequelize) `SQL ORM`
 * * [mocha](https://www.npmjs.com/package/mocha), [chai](https://www.npmjs.com/package/chai), [supertest](https://www.npmjs.com/package/supertest), [sinon](https://www.npmjs.com/package/sinon) `unit and integration testing`
 
+
 ## Swagger
 * `<url>/api-docs`
+
 
 ## Commands
 * **instalation:** `yarn install`
@@ -35,6 +61,7 @@
 * services `business logic to be used primary by controllers`
 * utils
 * tests
+
 
 ## Code Examples
 
@@ -68,7 +95,7 @@ export class PingController extends Controller {
   /** Type of security needed to access the method */
   @Security('adminUser')
   /** The request's body is accessed through a decorator */
-  /** The interface "IUserModel" is also used to build swagger specs and to perform run time validations */ 
+  /** The interface "IUserModel" is also used to build swagger specs and to perform run time validations */
   public async create(@Body() userParams: IUserModel): Promise<IUserModel> {
     const user = new UserModel(userParams);
     return this.userService.create(user);
@@ -168,7 +195,7 @@ export class UserService {
 ### Repositories
 * Repositories handle the access to data layers
 
-#### Mongo Repository 
+#### Mongo Repository
 ```typescript
 @ProvideSingleton(UserService)
 import { Schema, Model } from 'mongoose';
@@ -193,7 +220,7 @@ export class CaseRepository extends BaseRepository<ICaseModel> {
 }
 ```
 
-#### SQL Repository 
+#### SQL Repository
 ```typescript
 import { ProvideSingleton, inject } from '../../ioc';
 import { BaseRepository } from './BaseRepository';
