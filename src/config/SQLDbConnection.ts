@@ -1,7 +1,7 @@
 import * as Sequelize from 'sequelize';
 
 import constants from './constants';
-import { parseDatabaseArguments } from '../utils/generalUtils';
+import { getDatabaseConfig } from '../utils/generalUtils';
 import { Logger } from './Logger';
 import { ProvideSingleton } from '../ioc';
 
@@ -11,17 +11,9 @@ export class SQLDbConnection {
 
   constructor() {
     Logger.log(`connecting to ${constants.environment} SQL`);
-    let { SQL: config } = constants;
+    let config = getDatabaseConfig();
 
-    if (process.env.NODE_ENV === 'local') {
-      const { db } = parseDatabaseArguments(process.argv);
-
-      if (Object.keys(db).length > 0) {
-        config = db;
-      }
-    }
-
-    this.db = new Sequelize(config.db, config.username, config.password, {
+    this.db = new Sequelize(config.name, config.username, config.password, {
       port: config.port,
       host: config.host,
       dialect: config.dialect,
