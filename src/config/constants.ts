@@ -9,7 +9,7 @@ export default {
   port: Number(env.PORT),
   mongoConnectionString: env.MONGO_CONNECTION_STRING,
   SQL: {
-    db: env.SQL_DB,
+    name: env.SQL_DB,
     username: env.SQL_USERNAME,
     password: env.SQL_PASSWORD,
     host: env.SQL_HOST,

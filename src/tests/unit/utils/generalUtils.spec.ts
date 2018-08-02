@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-import { safeParse, cleanQuery, isId, parseMultiPartRequest } from '../../../utils';
+import { safeParse, cleanQuery, isId, parseMultiPartRequest, getDatabaseConfig } from '../../../utils';
 
 describe('General utils', () => {
   describe('safeParse', () => {
@@ -39,7 +39,8 @@ describe('General utils', () => {
     const mockRequest: any = {
       'headers': {
         'content-type': 'multipart/form-data',
-      }};
+      }
+    };
     it('should parse a multipart request and return void', async () => {
       parseMultiPartRequest(mockRequest)
         .then(data => expect(data).to.be.an('undefined'));
@@ -53,6 +54,36 @@ describe('General utils', () => {
     });
     it('should identify a NOT "id" key', async () => {
       expect(isId('other')).to.be.false; // tslint:disable-line
+    });
+  });
+
+  describe('getDatabaseConfig', () => {
+    it('should return environment config when NODE_ENV is not local', () => {
+      expect(getDatabaseConfig()).to.deep.equal({
+        name: 'abm-dev',
+        username: 'dev',
+        password: 'dev',
+        host: 'localhost',
+        port: 3306,
+        dialect: 'mysql'
+      });
+    });
+
+    it('should return new local config when NODE_ENV is local given by arguments in script', () => {
+      process.env.NODE_ENV = 'local';
+      process.argv = [
+        'dbname=localdbname',
+        'dbusername=localusername',
+        'dbpassword=localpassword'
+      ];
+      expect(getDatabaseConfig()).to.deep.equal({
+        name: 'localdbname',
+        username: 'localusername',
+        password: 'localpassword',
+        host: 'localhost',
+        port: 3306,
+        dialect: 'mysql'
+      });
     });
   });
 });

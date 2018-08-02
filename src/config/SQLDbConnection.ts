@@ -1,6 +1,7 @@
 import * as Sequelize from 'sequelize';
 
 import constants from './constants';
+import { getDatabaseConfig } from '../utils/generalUtils';
 import { Logger } from './Logger';
 import { ProvideSingleton } from '../ioc';
 
@@ -10,8 +11,9 @@ export class SQLDbConnection {
 
   constructor() {
     Logger.log(`connecting to ${constants.environment} SQL`);
-    const { SQL: config } = constants;
-    this.db = new Sequelize(config.db, config.username, config.password, {
+    const config = getDatabaseConfig();
+
+    this.db = new Sequelize(config.name, config.username, config.password, {
       port: config.port,
       host: config.host,
       dialect: config.dialect,
