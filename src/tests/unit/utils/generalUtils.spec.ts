@@ -60,10 +60,10 @@ describe('General utils', () => {
   describe('getDatabaseConfig', () => {
     it('should return environment config when NODE_ENV is not local', () => {
       expect(getDatabaseConfig()).to.deep.equal({
-        name: 'abm-dev',
-        username: 'dev',
-        password: 'dev',
-        host: 'localhost',
+        name: 'th5qifre3c5lffxr',
+        username: 'fii9qkmzwsormlq9',
+        password: 'g4y0uvnvf90kzyml',
+        host: 'g8mh6ge01lu2z3n1.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
         port: 3306,
         dialect: 'mysql'
       });
@@ -74,7 +74,8 @@ describe('General utils', () => {
       process.argv = [
         'dbname=localdbname',
         'dbusername=localusername',
-        'dbpassword=localpassword'
+        'dbpassword=localpassword',
+        'dbhost=localhost'
       ];
       expect(getDatabaseConfig()).to.deep.equal({
         name: 'localdbname',
