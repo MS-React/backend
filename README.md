@@ -2,17 +2,25 @@
 The ms-react backend is an API rest service from [react base](https://github.com/MS-React/react-base) to make additions, deletions, and modifications from users.
 
 ## Prerequisites
-**install npm**
+
+## Ubuntu
+
+**install npm version, node >= 8**
   * `sudo apt-get update`
   * `sudo apt-get install nodejs`
   * `sudo apt-get install npm`
 
 Also, you can use [nvm node version management tool](https://github.com/creationix/nvm)
 
-**install yarn**
+**install yarn latest**
   * `curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -`
   * `echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list`
   * `sudo apt-get update && sudo apt-get install yarn`
+
+## Windows
+
+  * [Install npm](http://blog.teamtreehouse.com/install-node-js-npm-windows)
+  * [Install yarn](https://yarnpkg.com/lang/en/docs/install/#windows-stable)
 
 ## Start application
 
